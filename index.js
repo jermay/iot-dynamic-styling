@@ -1,3 +1,4 @@
+// add an id property to uniquely identify each box
 const boxes = [
     { id: 1, name: 'red', background: 'red', color: 'white' },
     { id: 2, name: 'orange', background: 'orange', color: 'black' },
@@ -12,6 +13,8 @@ const boxContainer = $('#box-container');
 
 function renderBoxes() {
     for(let box of boxes) {
+        // the box html must be added to the DOM first
+        // otherwise the html tags won't exist to select/paint
         const boxHtml = createBox(box);
         boxContainer.append(boxHtml);
         paintBox(box);
@@ -23,6 +26,7 @@ function createBox(box) {
 }
 
 function paintBox(box) {
+    // a unique id is required to target a specific box
     let boxDiv = $(`#${box.id}`);
     boxDiv.css('background-color', box.background);
     boxDiv.css('color', box.color);
