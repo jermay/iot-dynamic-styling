@@ -7,3 +7,15 @@ const boxes = [
     { name: 'indigo', color: 'indigo' },
     { name: 'violet', color: 'violet' },
 ];
+
+const boxContainer = $('#box-container');
+
+function renderBoxes() {
+    let html = '';
+    for(let box of boxes) {
+        html += `<div class="box">${box.name}</div>`;
+    }
+    boxContainer.html(html);
+}
+
+renderBoxes();
